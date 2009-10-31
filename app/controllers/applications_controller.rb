@@ -1,6 +1,9 @@
 class ApplicationsController < InheritedResources::Base
   belongs_to :user
   
+  skip_before_filter :verify_authenticity_token , :only => :deps
+  
+  
   actions :index, :show, :new, :edit, :create, :update, :destroy
   respond_to :html, :js, :xml, :json
 

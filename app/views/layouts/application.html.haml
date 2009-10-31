@@ -13,44 +13,43 @@
     
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.to_json};" if protect_against_forgery?       
     = stylesheet_link_tag "reset.css", :cache => true    
-    = stylesheet_link_tag "bright_admin.css", :cache => true           
+    = stylesheet_link_tag "gemstreamer.css", :cache => true           
     = stylesheet_link_tag "formtastic.css", :cache => true    
     = stylesheet_link_tag "formtastic_changes.css", :cache => true     
     = yield :head
   %body
-    #container
-      #header
-        #panel-top
-          %h1#logo Gemstream  
-          #nav
-            %ul        
-              %li{:class => dasboard_tab?}= link_to "Home", "/"                
-          #session 
+    .container_12
+      .prefix_1.grid_3.header
+        %h1
+          %a{ :href => "/", :title => "Home" }
+            gemstreamer
+      .grid_7.suffix_1.nav
+        %ul
+          %li
+            = link_to "All libraries", libraries_path
+          %li
             - if current_user
-              Logged in as
-              = link_to current_user.login, edit_user_path(current_user)
-              |
-              = link_to "Logout" , logout_path
+              = link_to "Login", "/login"              
             - else
-              = link_to "login", login_path
-          .clear
-           
-        #panel-bottom
-          #headline
-            %h3= @page_title ||  params[:controller].humanize             
-        .clear
-      #application
-        #flash
-          - flash.each do |type, message| 
-            %div{:class =>  "message #{type}" }
-              %p= message        
-        = yield
- 
-        #footer
-          %p
-            Created for
-            %a{ :href => "http://2009.rubyenrails.nl/", :title => "RubyEnRails Amsterdam 2009" }
-              RubyEnRails Amsterdam 2009
-            Developed by
-            %a{ :href => "http://kabisa.nl", :title => "Kabisa.nl" }
-              Kabisa ICT 
+              = link_to "Logout", "/logout"              
+              
+          %li
+            = link_to "Sign up", new_user_path        
+       
+      .prefix_1.grid_10.suffix_1.main
+        .fold
+          .count
+            %strong
+              Tracking
+              = Library.count 
+            gems since 
+            = DateTime.now.to_s(:short)
+          .blurb
+            %strong
+            Gemstreamer
+            %br
+            Keep track of gems your using in your rails app
+        .info
+          = yield
+       
+    
