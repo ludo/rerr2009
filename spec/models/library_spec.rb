@@ -12,6 +12,7 @@ describe Library do
     end
 
     it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:version) }
     it { should validate_uniqueness_of(:name) }
   end
 end

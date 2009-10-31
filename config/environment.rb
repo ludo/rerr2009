@@ -21,6 +21,8 @@ Rails::Initializer.run do |config|
   config.gem 'searchlogic', :lib => false, :source => 'http://gemcutter.org', :version => '~> 2.3'
   config.gem 'lockdown', :lib => false, :source => 'http://gemcutter.org', :version => '~> 1.3'
   config.gem 'authlogic', :lib => false, :source => 'http://gemcutter.org', :version => '~> 2.1'
+  config.gem 'json_pure', :lib => false, :source => 'http://gemcutter.org', :version => '~> 1.1'
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
@@ -44,6 +46,7 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+  config.active_record.observers = :library_observer
 
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
