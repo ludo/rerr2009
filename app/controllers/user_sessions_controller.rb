@@ -1,5 +1,4 @@
 class UserSessionsController < ApplicationController
-  before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => :destroy
   after_filter :set_lockdown_values, :only => :create
 

@@ -29,13 +29,11 @@
             = link_to "All libraries", libraries_path
           %li
             - if current_user
-              = link_to "Login", "/login"              
+              = link_to "Logout", "/logout"
             - else
-              = link_to "Logout", "/logout"              
-              
+              = link_to "Login", "/login"              
           %li
-            = link_to "Sign up", new_user_path        
-       
+            = link_to "Sign up", new_user_path unless current_user
       .prefix_1.grid_10.suffix_1.main
         .fold
           .count
