@@ -1,0 +1,4 @@
+- content_tag_for(:tr, library, :class => cycle(:odd, :even)) do
+  %td.name= link_to library.name, library_path(library)
+  %td.version= h library.try(:version)
+  %td.homepage= h library.try(:homepage)

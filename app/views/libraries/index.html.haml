@@ -1,0 +1,25 @@
+
+.actions-bar
+  %div{:class => "left search"}
+    - form_for @search do |f|
+      = f.label "Find:"
+      = f.text_field :name
+      = f.submit("Search")
+  .right
+    = will_paginate @collection, :prev_label => "&laquo; Back", :next_label => "Next &raquo;"
+  .clear                                                                                     
+  
+  %br
+  
+%table
+  %thead.header
+    %tr
+      %th.name= 'Name'
+      %th.version= 'Version'
+      %th.homepage= 'Homepage'
+  %tbody.items.libraries
+    - @libraries.each do |library|
+      = render 'item', :library => library
+
+= will_paginate @collection, :prev_label => "&laquo; Back", :next_label => "Next &raquo;"
+ 

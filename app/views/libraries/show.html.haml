@@ -1,0 +1,11 @@
+%h1.heading
+  = "Library %s" % @library.id
+  
+- content_tag_for(:dl, @library) do
+  %dt.label= 'Name'
+  %dd.name= h @library.try(:name)
+  %dt.label= 'Version'
+  %dd.version= h @library.try(:version)
+  %dt.label= 'Homepage'
+  %dd.homepage= h @library.try(:homepage)
+  

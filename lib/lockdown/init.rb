@@ -120,6 +120,9 @@ Lockdown::System.configure do
     with_controller(:applications).
     except_methods(:deps)
 
+  set_permission(:view_libraries).
+    with_controller(:libraries)
+
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -135,8 +138,10 @@ Lockdown::System.configure do
   # Define the built-in user groups here:
   set_public_access(
     :login,
-    :publish_dependencies
+    :publish_dependencies,
+    :view_libraries
   )
+  
 
   set_protected_access(
     :logout,
