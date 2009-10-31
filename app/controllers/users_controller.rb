@@ -8,14 +8,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.save do |result|
-      if result
-        flash[:notice] = "Account registered!"
-        add_lockdown_session_values
-        redirect_to "/"
-      else
-        render :action => :new
-      end
+    
+    if @user.save
+      flash[:notice] = "Account registered!"
+      # add_lockdown_session_values
+      redirect_to user_applications_path(@user)
+    else
+      render :action => :new
     end
   end
 
