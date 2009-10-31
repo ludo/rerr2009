@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       if result
         flash[:notice] = "Account registered!"
       add_lockdown_session_values
-        redirect_back_or_default account_url
+        redirect_to user_path(@user)
       else
         render :action => :new
       end

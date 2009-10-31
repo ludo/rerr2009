@@ -1,5 +1,4 @@
 class LibrariesController < InheritedResources::Base
-  before_filter :require_no_user
   actions :index, :show
   respond_to :html
   
