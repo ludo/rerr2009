@@ -4,27 +4,20 @@
       %strong
         ready
       %span
-        gem install gemstreamer    
+        gem install gemstreamer
     %li#set
       %span
-        Register an account
-    %li#set
-      %span
-        gemstreamer appname publish
+        gemstreamer publish username appname
     %li#go
-      receive updates via twitter & email
+      receive updates via
+      %s twitter 
+      \& email
 
 %div{:class => "search"}
   - form_for @search do |f|
     = f.label "Find:"
     = f.text_field :name
     = f.submit("Search")
-
-%br
-
-  = will_paginate @collection, :prev_label => "&laquo; Back", :next_label => "Next &raquo;"
-
-%br
 
 %table
   %thead.header

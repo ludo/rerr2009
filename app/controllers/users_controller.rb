@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user.save do |result|
       if result
         flash[:notice] = "Account registered!"
-      add_lockdown_session_values
+        add_lockdown_session_values
         redirect_to "/"
       else
         render :action => :new
