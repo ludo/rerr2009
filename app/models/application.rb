@@ -14,5 +14,7 @@ class Application < ActiveRecord::Base
     deps.each_pair do |library, version|
       libraries << Library.find_or_create_by_name(:name => library, :version => version)
     end
+    
+    save
   end
 end
