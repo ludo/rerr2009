@@ -26,7 +26,10 @@
       .grid_7.suffix_1.nav
         %ul
           %li
-            = link_to "All libraries", libraries_path
+            - if current_user            
+              = link_to "My applications", user_applications_path(current_user)
+            - else  
+              = link_to "All libraries", libraries_path            
           %li
             - if current_user
               = link_to "Logout", "/logout"
