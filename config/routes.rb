@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :applications
 
   map.resources :users do |users|
-    users.resources :applications #, :member => { :deps => :post }
+    users.resources :applications
   end
   map.publish_deps "/users/:login/applications/:name/deps", :controller => "applications", :action => "deps"
 
