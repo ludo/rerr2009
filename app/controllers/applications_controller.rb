@@ -7,7 +7,12 @@ class ApplicationsController < InheritedResources::Base
   before_filter :require_user, :except => [:deps]
 
   def deps
-    puts params
+    @user = User.find_by_login(params[:login])
+    @application = @user.applications.find(params[:name])
+    
+    puts params[:dependencies]
+    
+    render :text => params[:dependencies]
   end
 
 protected

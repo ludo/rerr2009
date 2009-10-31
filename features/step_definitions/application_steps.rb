@@ -17,7 +17,7 @@ end
 When /^I push dependencies for "([^\"]*)"$/ do |app_name|
   application = Application.find_by_name(app_name)
   
-  RestClient.post("http://test.host:3000/users/applications", :param1 => 'one', :nested => { :param2 => 'two' })
+  RestClient.post("http://test.host:3000/users/#{@user.login}/applications/#{app_name}", :param1 => 'one', :nested => { :param2 => 'two' })
 end
 
 # === Then
