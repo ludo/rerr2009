@@ -1,3 +1,5 @@
+require 'twitter'
+
 class NotifierWorker < BackgrounDRb::MetaWorker
   set_worker_name :notifier_worker
   def create(args = nil)

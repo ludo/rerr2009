@@ -1,12 +1,18 @@
-%h1.heading
-  = "Application %s" % @application.id
-  
-- content_tag_for(:dl, @application) do
-  %dt.label= 'Name'
-  %dd.name= h @application.try(:name)
-  %dt.label= 'User'
-  %dd.user= h @application.try(:user)
-  
-%p.actions
-  = link_to 'Edit', edit_user_application_path(@user, @application)
-  = link_to 'Index', user_applications_path
+%h3.heading
+  = "Application %s" % @application.name
+
+%p= "Libraries used by #{@application.name}"
+
+%table
+  %thead.header
+    %tr
+      %th.name= 'Name'
+      %th.version= 'Latest Version'
+      %th.homepage= 'Homepage'
+  %tbody.items.libraries
+    - @application.libraries.each do |library|
+      = render 'libraries/item', :library => library
+
+.clear
+
+= link_to 'Index', user_path(@user)
