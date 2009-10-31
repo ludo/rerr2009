@@ -1,8 +1,14 @@
 class ApplicationsController < InheritedResources::Base
   belongs_to :user
-
+  
   actions :index, :show, :new, :edit, :create, :update, :destroy
   respond_to :html, :js, :xml, :json
+
+  before_filter :require_user, :except => [:deps]
+
+  def deps
+    puts params
+  end
 
 protected
   
