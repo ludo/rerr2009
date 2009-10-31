@@ -1,6 +1,7 @@
 class Application < ActiveRecord::Base
   # === Associations
   belongs_to :user
+  has_and_belongs_to_many :libraries
   
   # === Validations
   validates_presence_of :name
