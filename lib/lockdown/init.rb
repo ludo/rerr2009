@@ -111,6 +111,13 @@ Lockdown::System.configure do
   set_permission(:my_account).
     with_controller(:users).
     only_methods(:show)
+    
+  set_permission(:publish_dependencies).
+    with_controller(:applications).
+    only_methods(:deps)
+    
+  set_permission(:manage_applications).
+    with_controller(:applications)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
@@ -126,11 +133,13 @@ Lockdown::System.configure do
   #
   # Define the built-in user groups here:
   set_public_access(
-    :login
+    :login,
+    :publish_dependencies
   )
 
   set_protected_access(
     :logout,
+    :manage_applications,
     :my_account
   )
 

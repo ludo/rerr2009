@@ -8,7 +8,7 @@ class ApplicationsController < InheritedResources::Base
 
   def deps
     @user = User.find_by_login(params[:login])
-    @application = @user.applications.find(params[:name])
+    @application = @user.applications.find_by_name(params[:name])
     
     puts params[:dependencies]
     

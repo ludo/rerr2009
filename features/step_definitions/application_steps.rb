@@ -1,5 +1,3 @@
-require 'rest_client'
-
 # === Given
 Given /^I have an application "([^\"]*)" on gemstream$/ do |name|
   @application = Factory(:application, :name => name, :user => @user)
@@ -16,8 +14,7 @@ end
 # === When
 When /^I push dependencies for "([^\"]*)"$/ do |app_name|
   application = Application.find_by_name(app_name)
-  
-  RestClient.post("http://test.host:3000/users/#{@user.login}/applications/#{app_name}", :param1 => 'one', :nested => { :param2 => 'two' })
+  visit(publish_deps_url(:login => application.user.login, :name => application.name), :post, :param1 => 'one', :nested => { :param2 => 'two' })
 end
 
 # === Then
