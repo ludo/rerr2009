@@ -1,0 +1,7 @@
+- content_tag_for(:tr, application, :class => cycle(:odd, :even)) do
+  %td.name= h application.try(:name)
+  %td.user= h application.try(:user)
+  %td.actions
+    = link_to 'Show', user_application_path(@user, application)
+    = link_to 'Edit', edit_user_application_path(@user, application)
+    = link_to 'Destroy', user_application_path(@user, application), :confirm => 'Are you sure?', :method => :delete

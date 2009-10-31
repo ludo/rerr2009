@@ -1,0 +1,10 @@
+%h1.heading
+  = "Editing application %s" % @application.id
+  
+- semantic_form_for(@application, :url => user_application_path(@user, @application)) do |form|
+  = render 'form', :form => form
+  - form.buttons do
+    = form.commit_button 'Update'
+    
+%p.actions
+  = link_to 'Cancel', user_applications_path

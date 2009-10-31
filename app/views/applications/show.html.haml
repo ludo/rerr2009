@@ -1,0 +1,12 @@
+%h1.heading
+  = "Application %s" % @application.id
+  
+- content_tag_for(:dl, @application) do
+  %dt.label= 'Name'
+  %dd.name= h @application.try(:name)
+  %dt.label= 'User'
+  %dd.user= h @application.try(:user)
+  
+%p.actions
+  = link_to 'Edit', edit_user_application_path(@user, @application)
+  = link_to 'Index', user_applications_path

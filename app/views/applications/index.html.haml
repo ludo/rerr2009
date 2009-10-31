@@ -1,0 +1,27 @@
+%h1.heading
+  = "Applications"
+
+.actions-bar
+  %div{:class => "left search"}
+    - form_for @search do |f|
+      = f.label "Find:"
+      = f.text_field :name
+      = f.submit("Search")
+  .right
+    = will_paginate @collection, :prev_label => "&laquo; Back", :next_label => "Next &raquo;"
+  .clear                                                                                     
+
+%p.actions
+  = link_to 'New Application', new_user_application_path
+  
+%table
+  %thead.header
+    %tr
+      %th.name= 'Name'
+      %th.user= 'User'
+      %th.actions= 'Actions'
+  %tbody.items.applications
+    - @applications.each do |application|
+      = render 'item', :application => application
+
+= will_paginate @collection, :prev_label => "&laquo; Back", :next_label => "Next &raquo;"

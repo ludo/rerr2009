@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :applications
+
   map.resources :users do |users|
     users.resources :applications, :member => { :deps => :post }
   end
