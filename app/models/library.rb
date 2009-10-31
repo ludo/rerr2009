@@ -1,6 +1,7 @@
 class Library < ActiveRecord::Base
   # === Associations
   belongs_to :user
+  has_many :events
   
   # === Validations
   validates_presence_of :name
