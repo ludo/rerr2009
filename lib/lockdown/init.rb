@@ -117,7 +117,8 @@ Lockdown::System.configure do
     only_methods(:deps)
     
   set_permission(:manage_applications).
-    with_controller(:applications)
+    with_controller(:applications).
+    except_methods(:deps)
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Built-in user groups
