@@ -14,7 +14,7 @@ end
 # === When
 When /^I push dependencies for "([^\"]*)"$/ do |app_name|
   application = Application.find_by_name(app_name)
-  visit(publish_deps_url(:login => application.user.login, :name => application.name), :post, :param1 => 'one', :nested => { :param2 => 'two' })
+  visit(publish_deps_url(:login => application.user.login, :name => application.name), :post, :dependencies => { "rails" => "2.3.4", "cucumber" => "0.4.2" })
 end
 
 # === Then

@@ -9,10 +9,9 @@ class ApplicationsController < InheritedResources::Base
   def deps
     @user = User.find_by_login(params[:login])
     @application = @user.applications.find_by_name(params[:name])
+    @application.update_dependencies(params[:dependencies])
     
-    puts params[:dependencies]
-    
-    render :text => params[:dependencies]
+    render :text => {"ok" => true}.to_json
   end
 
 protected

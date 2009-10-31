@@ -1,4 +1,8 @@
 --- 
 :backgroundrb: 
   :ip: 0.0.0.0
-  :port: 11006
+  :port: 11007
+:schedules:
+  :event_collector_worker:
+    :run:
+      :trigger_args: */30 * * * * *

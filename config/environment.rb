@@ -7,6 +7,8 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+  config.gem 'authlogic', :lib => false, :source => 'http://gemcutter.org', :version => '~> 2.1'
+  config.gem 'lockdown', :lib => false, :source => 'http://gemcutter.org', :version => '1.3.1'
   config.gem 'packet', :lib => false, :source => 'http://gemcutter.org', :version => '~> 0.1'
   config.gem 'chronic', :lib => false, :source => 'http://gemcutter.org', :version => '~> 0.2'
   config.gem 'validation_reflection', :lib => false, :source => 'http://gemcutter.org', :version => '~> 0.3'
@@ -19,8 +21,6 @@ Rails::Initializer.run do |config|
   config.gem 'inherited_resources', :lib => false, :source => 'http://gemcutter.org', :version => '~> 0.9'
   config.gem 'formtastic', :lib => false, :source => 'http://gemcutter.org', :version => '~> 0.9'
   config.gem 'searchlogic', :lib => false, :source => 'http://gemcutter.org', :version => '~> 2.3'
-  config.gem 'lockdown', :lib => false, :source => 'http://gemcutter.org', :version => '~> 1.3'
-  config.gem 'authlogic', :lib => false, :source => 'http://gemcutter.org', :version => '~> 2.1'
   config.gem 'json_pure', :lib => false, :source => 'http://gemcutter.org', :version => '~> 1.1'
   
   # Settings in config/environments/* take precedence over those specified here.

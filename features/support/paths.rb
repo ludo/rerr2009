@@ -11,6 +11,10 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
     
+    when /^the application details page for "(.*)"$/i
+      application = Application.find_by_name($1)
+      user_application_path(application.user, application)
+
     # Add more mappings here.
     # Here is a more fancy example:
     #

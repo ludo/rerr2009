@@ -6,4 +6,13 @@ class Application < ActiveRecord::Base
   # === Validations
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => :user_id
+  
+  # === Instance Methods
+  
+  def update_dependencies(deps)
+    deps ||= {}
+    deps.each_pair do |library, version|
+      libraries << Library.find_or_create_by_name(library)
+    end
+  end
 end
