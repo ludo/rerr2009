@@ -12,7 +12,7 @@ class Application < ActiveRecord::Base
   def update_dependencies(deps)
     deps ||= {}
     deps.each_pair do |library, version|
-      libraries << Library.find_or_create_by_name(library)
+      libraries << Library.find_or_create_by_name(:name => library, :version => version)
     end
   end
 end
