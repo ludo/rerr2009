@@ -5,4 +5,7 @@
 :schedules:
   :event_collector_worker:
     :run:
-      :trigger_args: */30 * * * * *
+      :trigger_args: */10 * * * * *
+  :notifier_worker:
+    :send_out_emails:
+      :trigger_args: */10 * * * * *

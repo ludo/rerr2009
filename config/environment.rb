@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic', :lib => false, :source => 'http://gemcutter.org', :version => '~> 0.9'
   config.gem 'searchlogic', :lib => false, :source => 'http://gemcutter.org', :version => '~> 2.3'
   config.gem 'json_pure', :lib => false, :source => 'http://gemcutter.org', :version => '~> 1.1'
+  # config.gem 'twitter', :lib => false, :source => 'http://gemcutter.org', :version => '~> 0.6'
   
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
